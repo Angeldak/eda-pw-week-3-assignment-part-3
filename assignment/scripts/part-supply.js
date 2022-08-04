@@ -47,10 +47,28 @@ for (let i = 0; i <= supplyChanges.length; i++) {
 console.log('---  Stretch Goals  ---');
 // 7. Rewrite the `for` loop from #6 as a `for of` loop. 
 console.log('7. Showing supplyChanges with "for of" loop');
+for (parts of supplyChanges) {
+    if (parts > 0) {
+        console.log(`Added ${parts} parts.`);
+    } else if (parts === 0) {
+        console.log("No Change.");
+    } else if (parts < 0) {
+        console.log(`Removed ${parts} parts.`)
+    }
+}
 
 // 8. Write a loop to determine the total number of parts available by
 //    adding up all the numbers in the 'supplyChanges' array.
 console.log('8. Total supplies available is:');
+let totalParts = 0;
+for (parts of supplyChanges) {
+    totalParts = totalParts + parts;
+}
+console.log(totalParts);
+
+//V2 with Reduce
+const partsTotal = supplyChanges.reduce((prev, curr) => prev + curr);
+console.log("Total with reduce method:", partsTotal);
 
 // 9. We have a large stash of parts in our warehouse that we 
 //    need to box up and get ready for shipment. 
@@ -59,3 +77,11 @@ console.log('8. Total supplies available is:');
 //    no more boxes can be filled.
 //    Then log how many boxes were filled, and how many parts are left over.
 console.log('9. Filling boxes with a "while" loop');
+let partStash = 572;
+let totalBoxes = 0;
+while (partStash >= 7) {
+    partStash = partStash - 7;
+    totalBoxes++
+}
+console.log(`Total number of boxes filled is: ${totalBoxes}`);
+console.log(`Total remaining parts are: ${partStash}`);
